@@ -25,3 +25,5 @@
 Notion: https://kimsoobin1602.notion.site/217957a41faf8011aaa8da76eec79cb0?source=copy_link
 
 구글폼: https://forms.gle/Py3kLEcSf1SBSGG78
+
+최시원
