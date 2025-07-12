@@ -26,5 +26,5 @@ Notion: https://kimsoobin1602.notion.site/217957a41faf8011aaa8da76eec79cb0?sourc
 
 구글폼: https://forms.gle/Py3kLEcSf1SBSGG78
 
-최시원
+최시원  
 최시원 / 정보통신공학전공 / 2021112044
