@@ -2,6 +2,7 @@ package study.assignment.Service;
 
 import org.springframework.stereotype.Service;
 import study.assignment.Domain.Post;
+import study.assignment.Dto.PostCreateDto;
 import study.assignment.Repository.PostRepository;
 
 import java.time.LocalDateTime;
@@ -17,10 +18,10 @@ public class PostService { // 서비스: 비즈니스 로직 담당!
     }
 
     // 게시글 작성
-    public Post createPost(Post post) {
-        post = Post.builder()
-                .title(post.getTitle())
-                .contents(post.getContents())
+    public Post createPost(PostCreateDto postCreateDto) {
+        Post post = Post.builder()
+                .title(postCreateDto.getTitle())
+                .contents(postCreateDto.getContents()) // DTO에서 제목과 내용을 가져옴
                 .createdAt(LocalDateTime.now()) // 생성일시는 NULL일 수 없으므로 현재 시간으로 채우자.
                 .build();
         return postRepository.save(post);

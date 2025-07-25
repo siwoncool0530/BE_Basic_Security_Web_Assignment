@@ -1,7 +1,9 @@
 package study.assignment.Controller;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import study.assignment.Domain.Post;
+import study.assignment.Dto.PostCreateDto;
 import study.assignment.Service.PostService;
 
 import java.util.List;
@@ -18,8 +20,8 @@ public class PostController { // 컨트롤러: 중간 연결자 역할!
 
     // 게시글 작성 (Post)
     @PostMapping
-    public Post create(@RequestBody Post post) {
-        return postService.createPost(post);
+    public Post create(@Valid @RequestBody PostCreateDto postCreateDto) {
+        return postService.createPost(postCreateDto);
     }
 
     // 게시글 목록 조회 (Get)
