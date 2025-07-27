@@ -6,12 +6,16 @@ import lombok.*;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-public class PostCreateDto {
+public class PostUpdateDto {
     @NotBlank(message = "Title cannot be empty") // NOT NULL
     @Size(max = 50, message = "Title cannot exceed 50 characters") // VARCHAR(50)
     private String title;
 
     @NotBlank(message = "Contents cannot be empty") // NOT NULL
     private String contents;
+
+    public PostUpdateDto(String title, String contents) {
+        this.title = title;
+        this.contents = contents;
+    }
 }

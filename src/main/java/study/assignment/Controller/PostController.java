@@ -2,8 +2,9 @@ package study.assignment.Controller;
 
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-import study.assignment.Domain.Post;
 import study.assignment.Dto.PostCreateDto;
+import study.assignment.Dto.PostResponseDto;
+import study.assignment.Dto.PostUpdateDto;
 import study.assignment.Service.PostService;
 
 import java.util.List;
@@ -18,28 +19,28 @@ public class PostController { // 컨트롤러: 중간 연결자 역할!
         this.postService = postService;
     }
 
-    // 게시글 작성 (Post)
+    // 게시글 작성 (Post) - PostCreateDto를 요청으로 받아서 PostResponse로 반환
     @PostMapping
-    public Post create(@Valid @RequestBody PostCreateDto postCreateDto) {
+    public PostResponseDto create(@Valid @RequestBody PostCreateDto postCreateDto) {
         return postService.createPost(postCreateDto);
     }
 
-    // 게시글 목록 조회 (Get)
+    // 게시글 목록 조회 (Get) - List를 반환할 때 PostResponseDto로 반환
     @GetMapping
-    public List<Post> getAll() {
+    public List<PostResponseDto> getAll() {
         return postService.getAllPosts();
     }
 
-    // id를 기반으로 특정 게시글 가져오기 (Get)
+    // id를 기반으로 특정 게시글 가져오기 (Get) - PostResponseDto로 반환
     @GetMapping("/{id}")
-    public Post getById(@PathVariable Long id) {
+    public PostResponseDto getById(@PathVariable Long id) {
         return postService.getPostById(id);
     }
 
-    // id를 기반으로 특정 게시글 수정하기 (Patch)
+    // id를 기반으로 특정 게시글 수정하기 (Patch) - PostUpdateDto를 요청으로 받아서 PostResponse로 변환
     @PatchMapping("/{id}")
-    public Post update(@PathVariable Long id, @RequestBody Post updatedPost){
-        return postService.updatePost(id, updatedPost);
+    public PostResponseDto update(@PathVariable Long id, @RequestBody PostUpdateDto postUpdateDto){
+        return postService.updatePost(id, postUpdateDto);
     }
 
     // id를 기반으로 특정 게시글 삭제하기 (Delete)
