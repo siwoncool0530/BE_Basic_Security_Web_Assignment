@@ -37,7 +37,7 @@ jobs:
             gradle-${{ runner.os }}-
       
       - name: 권한 부여
-      - run: chmod +x ./gradlew
+        run: chmod +x ./gradlew
       
       - name: Build with Gradle Wrapper (Skip Tests)
         run: ./gradlew build -x test
